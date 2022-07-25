@@ -1,7 +1,7 @@
 class ElasticsearchFull < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.4-darwin-x86_64.tar.gz?tap=elastic/homebrew-tap"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.4-darwin-aarch64.tar.gz?tap=elastic/homebrew-tap"
   version "7.17.4"
   sha256 "6d2343171a0d384910312220aae3512f45e3d3d900557b736c139b8363a008e4"
   conflicts_with "elasticsearch"
@@ -41,7 +41,7 @@ class ElasticsearchFull < Formula
     end
     bin.env_script_all_files(libexec/"bin", {})
 
-    system "codesign", "-f", "-s", "-", "#{libexec}/modules/x-pack-ml/platform/darwin-x86_64/controller.app", "--deep"
+    system "codesign", "-f", "-s", "-", "#{libexec}/modules/x-pack-ml/platform/darwin-aarch64/controller.app", "--deep"
     system "find", "#{libexec}/jdk.app/Contents/Home/bin", "-type", "f", "-exec", "codesign", "-f", "-s", "-", "{}", ";"
   end
 
